@@ -1,0 +1,9 @@
+name: paper-embed-rec
+channels:
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - nodejs=20
+  - pip:
+      - -r requirements.txt

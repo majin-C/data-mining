@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-labelledby="title desc">
+  <title id="title">论文智能聚类与推荐系统架构图</title>
+  <desc id="desc">黑白灰风格的系统架构图，展示论文智能聚类与推荐系统的八个主要功能模块，以及前端、后端、算法和数据存储之间的关系。</desc>
+
+  <defs>
+    <!-- 箭头统一定义，保证 PPT 中缩放后仍保持清晰。 -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#333333"/>
+    </marker>
+  </defs>
+
+  <style>
+    <![CDATA[
+      .bg { fill: #ffffff; }
+      .title { font: 700 38px "Microsoft YaHei", "Segoe UI", Arial, sans-serif; fill: #111111; }
+      .subtitle { font: 400 20px "Microsoft YaHei", "Segoe UI", Arial, sans-serif; fill: #555555; }
+      .layer-title { font: 700 22px "Microsoft YaHei", "Segoe UI", Arial, sans-serif; fill: #222222; }
+      .small { font: 400 16px "Microsoft YaHei", "Segoe UI", Arial, sans-serif; fill: #333333; }
+      .box-title { font: 700 19px "Microsoft YaHei", "Segoe UI", Arial, sans-serif; fill: #111111; }
+      .box-line { font: 500 16px "Microsoft YaHei", "Segoe UI", Arial, sans-serif; fill: #222222; }
+      .label { font: 700 16px "Microsoft YaHei", "Segoe UI", Arial, sans-serif; fill: #ffffff; }
+      .container { fill: #f7f7f7; stroke: #222222; stroke-width: 2; rx: 8; }
+      .box { fill: #ffffff; stroke: #333333; stroke-width: 1.8; rx: 8; }
+      .box-head { fill: #333333; rx: 8; }
+      .module { fill: #ffffff; stroke: #333333; stroke-width: 1.8; rx: 8; }
+      .module-head { fill: #444444; rx: 8; }
+      .module-title { font: 700 18px "Microsoft YaHei", "Segoe UI", Arial, sans-serif; fill: #ffffff; }
+      .module-line { font: 500 16px "Microsoft YaHei", "Segoe UI", Arial, sans-serif; fill: #111111; }
+      .store { fill: #eeeeee; stroke: #444444; stroke-width: 1.6; rx: 8; }
+      .store-title { font: 700 17px "Microsoft YaHei", "Segoe UI", Arial, sans-serif; fill: #111111; }
+      .store-line { font: 500 15.5px "Microsoft YaHei", "Segoe UI", Arial, sans-serif; fill: #222222; }
+      .arrow { fill: none; stroke: #333333; stroke-width: 2.2; marker-end: url(#arrow); }
+      .thin-arrow { fill: none; stroke: #555555; stroke-width: 1.8; marker-end: url(#arrow); }
+      .divider { stroke: #bbbbbb; stroke-width: 1.4; stroke-dasharray: 8 7; }
+    ]]>
+  </style>
+
+  <rect class="bg" x="0" y="0" width="1920" height="1080"/>
+
+  <!-- 标题区：用于 PPT 首页或答辩讲解时直接截图。 -->
+  <text class="title" x="70" y="68">论文智能聚类与推荐系统架构图</text>
+
+  <!-- 顶层调用关系：说明用户通过前端访问后端 API，再调用业务功能和底层数据。 -->
+  <g transform="translate(70 135)">
+    <rect class="box" x="0" y="0" width="300" height="92"/>
+    <rect class="box-head" x="0" y="0" width="300" height="34"/>
+    <text class="label" x="150" y="23" text-anchor="middle">用户与浏览器</text>
+    <text class="box-line" x="22" y="68">搜索、筛选、推荐、聚类图操作</text>
+
+    <path class="arrow" d="M320 46 L415 46"/>
+
+    <rect class="box" x="435" y="0" width="330" height="92"/>
+    <rect class="box-head" x="435" y="0" width="330" height="34"/>
+    <text class="label" x="600" y="23" text-anchor="middle">前端展示层</text>
+    <text class="box-line" x="457" y="58">Vue 3 + Vite + Axios</text>
+    <text class="box-line" x="457" y="79">ECharts 展示 K 曲线和聚类散点图</text>
+
+    <path class="arrow" d="M785 46 L880 46"/>
+
+    <rect class="box" x="900" y="0" width="330" height="92"/>
+    <rect class="box-head" x="900" y="0" width="330" height="34"/>
+    <text class="label" x="1065" y="23" text-anchor="middle">后端 API 层</text>
+    <text class="box-line" x="922" y="58">FastAPI 提供 /api 接口</text>
+    <text class="box-line" x="922" y="79">统一调度检索、推荐、聚类和同步服务</text>
+
+    <path class="arrow" d="M1250 46 L1345 46"/>
+
+    <rect class="box" x="1365" y="0" width="330" height="92"/>
+    <rect class="box-head" x="1365" y="0" width="330" height="34"/>
+    <text class="label" x="1530" y="23" text-anchor="middle">算法与数据支撑</text>
+    <text class="box-line" x="1387" y="58">SQLite、SPECTER2、NumPy、KMeans</text>
+    <text class="box-line" x="1387" y="79">本地向量、聚类缓存和 arXiv 数据源</text>
+  </g>
+
+  <!-- 业务功能层：八个模块是系统答辩时的主体，采用统一黑白灰模块卡片。 -->
+  <rect class="container" x="70" y="275" width="1780" height="520"/>
+  <text class="layer-title" x="100" y="315">核心功能模块</text>
+  <line class="divider" x1="100" y1="535" x2="1820" y2="535"/>
+
+  <!-- 第一行模块：偏向数据构建、检索和推荐。 -->
+  <g transform="translate(100 350)">
+    <rect class="module" x="0" y="0" width="405" height="145"/>
+    <rect class="module-head" x="0" y="0" width="405" height="38"/>
+    <text class="module-title" x="20" y="25">1. 数据接入与初始化</text>
+    <text class="module-line" x="22" y="68">输入：本地 arXiv JSONL 快照</text>
+    <text class="module-line" x="22" y="96">处理：清洗文本、去版本号、筛选 8 个 CS 分类</text>
+    <text class="module-line" x="22" y="124">输出：SQLite 论文表与 FTS5 全文索引</text>
+
+    <rect class="module" x="445" y="0" width="405" height="145"/>
+    <rect class="module-head" x="445" y="0" width="405" height="38"/>
+    <text class="module-title" x="465" y="25">2. 论文向量生成</text>
+    <text class="module-line" x="467" y="68">输入：title [SEP] abstract</text>
+    <text class="module-line" x="467" y="96">处理：SPECTER2 编码，失败时哈希向量兜底</text>
+    <text class="module-line" x="467" y="124">输出：embeddings.npy 与 paper_ids.json</text>
+
+    <rect class="module" x="890" y="0" width="405" height="145"/>
+    <rect class="module-head" x="890" y="0" width="405" height="38"/>
+    <text class="module-title" x="910" y="25">3. 论文检索与详情</text>
+    <text class="module-line" x="912" y="68">输入：关键词、分类、创建/更新时间范围</text>
+    <text class="module-line" x="912" y="96">处理：FTS5 + BM25 相关度排序和分页</text>
+    <text class="module-line" x="912" y="124">输出：论文列表、统计数量、单篇论文详情</text>
+
+    <rect class="module" x="1335" y="0" width="405" height="145"/>
+    <rect class="module-head" x="1335" y="0" width="405" height="38"/>
+    <text class="module-title" x="1355" y="25">4. 相似论文推荐</text>
+    <text class="module-line" x="1357" y="68">输入：选中论文或用户研究兴趣文本</text>
+    <text class="module-line" x="1357" y="96">处理：L2 归一化、点积计算余弦相似度</text>
+    <text class="module-line" x="1357" y="124">输出：Top-K 推荐论文与相似度 score</text>
+
+    <path class="thin-arrow" d="M410 72 L435 72"/>
+    <path class="thin-arrow" d="M855 72 L880 72"/>
+    <path class="thin-arrow" d="M1300 72 L1325 72"/>
+  </g>
+
+  <!-- 第二行模块：偏向聚类、可视化、增量更新和页面闭环。 -->
+  <g transform="translate(100 585)">
+    <rect class="module" x="0" y="0" width="405" height="145"/>
+    <rect class="module-head" x="0" y="0" width="405" height="38"/>
+    <text class="module-title" x="20" y="25">5. K 值评估</text>
+    <text class="module-line" x="22" y="68">输入：各主分类下的论文向量</text>
+    <text class="module-line" x="22" y="96">处理：候选 K、KMeans、轮廓系数评估</text>
+    <text class="module-line" x="22" y="124">输出：每类 K 选择依据和评估折线图数据</text>
+
+    <rect class="module" x="445" y="0" width="405" height="145"/>
+    <rect class="module-head" x="445" y="0" width="405" height="38"/>
+    <text class="module-title" x="465" y="25">6. 聚类分析与可视化</text>
+    <text class="module-line" x="467" y="68">输入：当前选择的分类 K 值</text>
+    <text class="module-line" x="467" y="96">处理：PCA 降维、读取 KMeans 缓存和采样点</text>
+    <text class="module-line" x="467" y="124">输出：8 个主分类二维聚类散点图</text>
+
+    <rect class="module" x="890" y="0" width="405" height="145"/>
+    <rect class="module-head" x="890" y="0" width="405" height="38"/>
+    <text class="module-title" x="910" y="25">7. 手动增量更新</text>
+    <text class="module-line" x="912" y="68">输入：上次成功更新时间到当前时间窗口</text>
+    <text class="module-line" x="912" y="96">处理：arXiv API 抓取、入库、补齐 embedding</text>
+    <text class="module-line" x="912" y="124">输出：新增论文、同步日志和前端进度状态</text>
+
+    <rect class="module" x="1335" y="0" width="405" height="145"/>
+    <rect class="module-head" x="1335" y="0" width="405" height="38"/>
+    <text class="module-title" x="1355" y="25">8. 前端交互展示</text>
+    <text class="module-line" x="1357" y="68">输入：用户点击、输入和筛选条件</text>
+    <text class="module-line" x="1357" y="96">处理：Axios 调 API，ECharts 渲染图表</text>
+    <text class="module-line" x="1357" y="124">输出：可演示的搜索、推荐、聚类和更新页面</text>
+
+    <path class="thin-arrow" d="M410 72 L435 72"/>
+    <path class="thin-arrow" d="M855 72 L880 72"/>
+    <path class="thin-arrow" d="M1300 72 L1325 72"/>
+  </g>
+
+</svg>
